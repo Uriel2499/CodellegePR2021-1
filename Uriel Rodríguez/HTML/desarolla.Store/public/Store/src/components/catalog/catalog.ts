@@ -27,7 +27,7 @@ export class CatalogComponent implements OnInit {
     Singleton.GetInstance().ShowLoader();
     $.ajax({
       type: "GET",
-      url: 'http://localhost:666/products/all',
+      url: `http://localhost:666/products/search?name=${this.searchFilters.name}&price=0,${this.searchFilters.price}`,
       success: function (res: any) {
         //console.log(self.products); //null
         self.products = res;
@@ -61,4 +61,9 @@ export class CatalogComponent implements OnInit {
   }
 
   products = null;
+  searchFilters= {
+    name:'',
+    price: 100000,
+    stock: false
+  }
 }

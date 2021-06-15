@@ -3,8 +3,10 @@
   <article class="row">
     <section class="filtro col-3">
       <h3>Filtros de búsqueda</h3>
-      <input type="checkbox" name="Filtro tal" id="filtro1">
-      <label for="filtro1">Filtro 1</label>
+      <div class="search-bar">
+        <input type="text" class="w-100 search-box" placeholder="Buscar...">
+        <div class="search-icon"></div>
+      </div>
     </section>
     <section class="col-9 px-2">
       <div *ngFor="let product of products" class="card product-card">
