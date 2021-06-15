@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center py-5">
+      <section class="login-form p-5">
+        <article class="d-table w-100 h-100">
+          <div class="d-table-cell w-100 h-100 align-middle">
+            <h3 class="text-start py-2">Iniciar Sesión</h3>
+            <input type="text" (input)="UpdateValue($event, 'email')" placeholder="Username/Email"
+              class="w-100 mb-4 login-input">
+            <input type="password" (input)="UpdateValue($event, 'password')" placeholder="********"
+              class="w-100 mb-4 login-input">
+            <button (click)="Login();" class="button-login">Login</button>
+            <div class="py-2 login-error" [hidden]="!invalidLogin">
+              No se pudo iniciar sesión. Verifique sus datos.
+            </div>
+            <div class="py-2">Aún no estás registrado?
+              <a class="link" href="/register">Registrarse <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+</div>

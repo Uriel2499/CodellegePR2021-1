@@ -1,0 +1,59 @@
+<div class="container">
+  <section class="row my-5 register-form p-5">
+    <h3 class="text-start py-2">Registro de usuario</h3>
+    <div class="col-6">
+      <article class="d-table w-100">
+        <div class="d-table-cell w-100 h-100 align-middle">
+          <div class="text-start">Nombre:</div>
+          <input type="text" (input)="UpdateValue($event, 'name')" placeholder="Name" class="w-100 mb-4 register-input">
+
+          <div class="text-start">Apellidos:</div>
+          <input type="text" (input)="UpdateValue($event, 'lastName')" placeholder="lastName"
+            class="w-100 mb-4 register-input">
+
+          <div class="text-start">Usuario:</div>
+          <input type="text" (input)="UpdateValue($event, 'nickname')" placeholder="Username"
+            class="w-100 mb-4 register-input">
+
+          <div class="text-start">Correo:</div>
+          <input type="text" (input)="UpdateValue($event, 'email')" placeholder="Email"
+            class="w-100 mb-4 register-input">
+
+          <div class="text-start">Contraseña:</div>
+          <input type="password" (input)="UpdateValue($event, 'password')" placeholder="********"
+            class="w-100 mb-4 register-input">
+        </div>
+      </article>
+    </div>
+    <div class="col-6">
+      <article class="d-table w-100">
+        <div class="text-start">Calle:</div>
+        <input type="text" (input)="UpdateValue($event, 'street')" placeholder="Calle"
+          class="w-100 mb-4 register-input">
+
+        <div class="text-start">Colonia:</div>
+        <input type="text" (input)="UpdateValue($event, 'suburb')" placeholder="Colonia"
+          class="w-100 mb-4 register-input">
+
+        <div class="text-start">Ciudad:</div>
+        <input type="text" (input)="UpdateValue($event, 'city')" placeholder="Ciudad" class="w-100 mb-4 register-input">
+
+        <div class="text-start">Estado:</div>
+        <input type="text" (input)="UpdateValue($event, 'state')" placeholder="Estado"
+          class="w-100 mb-4 register-input">
+
+        <div class="text-start">Código Postal:</div>
+        <input type="number" (input)="UpdateValue($event, 'zip')" placeholder="60000" class="w-100 mb-4 register-input">
+      </article>
+    </div>
+    <div class="col-12">
+      <div class="text-start">Teléfono:</div>
+      <input type="number" (input)="UpdateValue($event, 'password')" placeholder="8X XX XX XX XX"
+        class="w-100 mb-4 register-input">
+      <div class="py-2 register-error" [hidden]="!invalidRegister">
+        No se pudo registrar: {{registerFailureReason}}
+      </div>
+      <button (click)="Register();" class="button-register">Registrar</button>
+    </div>
+  </section>
+</div>

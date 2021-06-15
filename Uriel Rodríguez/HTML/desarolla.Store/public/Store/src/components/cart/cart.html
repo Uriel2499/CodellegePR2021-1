@@ -1,0 +1,63 @@
+<section class="container py-5">
+  <div class="row title">
+    <h2>Carrito de compras
+      <button class="btn clean-button" (click)="CleanCart()">
+        <i class="bi bi-trash-fill"></i>&nbsp;Limpiar carrito
+      </button>
+    </h2>
+    <div class="col-6 line-border"></div>
+  </div>
+  <div class="row">
+    <div *ngIf="products !== null; else emptyCart">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td class="product-image">
+                <img [src]="product.images[0]">
+            </td>
+            <td class="product-detail">
+              <div [title]="product.name">{{product.name}}</div>
+              <div [title]="product.sku">#{{product.sku}}</div>
+              <div [title]="product.description">{{product.description}}</div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center centered">
+                <span class="button-cart" (click)="DeleteOne(product.sku)">-</span>
+                <span class="px-3">{{product.qty}}</span>
+                <span class="button-cart" (click)="AddOne(product.sku)">+</span>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center centered">
+                ${{product.qty * product.unit_price}}
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center delete-items centered">
+                <span class="button-cart" (click)="DeleteProduct(product.sku);">x</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <section class="overflow-hidden">
+          <span class="cart-total">Total: ${{total}}</span>
+      </section>
+      <section>
+        <a href='/checkout' class="btn pay-button">Continuar</a>
+      </section>
+    </div>
+    <ng-template #emptyCart>
+        <h3 class="py-5">No hay productos en el carrito</h3>
+    </ng-template>
+  </div>
+</section>

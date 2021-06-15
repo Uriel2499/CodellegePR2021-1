@@ -1,0 +1,92 @@
+table {
+  font-size: 1.5rem;
+}
+
+.line-border {
+  border-bottom: 0.3rem solid var(--color-black);
+}
+
+.title h2 {
+  padding: 0;
+}
+
+.centered div {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  height: 7rem;
+  justify-content: center;
+}
+
+.cart-total {
+  border-top: 0.2rem solid var(--color-black);
+  font-size: 1.5rem;
+  float: right;
+}
+
+.product-image {
+  max-width: 6rem;
+}
+
+.product-image img {
+  height: 7rem;
+}
+
+.product-detail {
+  max-width: 8rem;
+}
+
+.product-detail div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.centered {
+  height: 100%;
+  justify-content: center;
+}
+
+.button-cart {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.button-cart:hover {
+  background-color: var(--color-gray);
+  color: var(--color-white);
+}
+
+.pay-button {
+  padding: 0.5rem 2rem;
+  background: var(--color-blue);
+  border: 0;
+  border-radius: 0;
+  color: var(--color-white);
+  width: 100%;
+}
+
+.pay-button:hover {
+  background: var(--color-gray);
+  color: var(--color-white);
+}
+
+.clean-button {
+  margin-left: 1rem;
+  background: var(--color-blue);
+  border: 0;
+  border-radius: 0;
+  color: var(--color-white);
+}
+
+.clean-button:hover {
+  background: var(--color-gray);
+  color: var(--color-white);
+}
