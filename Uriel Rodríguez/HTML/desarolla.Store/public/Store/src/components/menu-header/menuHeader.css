@@ -1,0 +1,52 @@
+header {
+    background: #00adb5;
+    box-shadow: 0rem 0.2rem 1rem 0.1rem #393e46;
+    height: 3rem;
+    padding: 0.3rem;
+    color: #EEEEEE;
+    font-size: 1.4rem;
+
+    position: sticky;
+    left: 0;
+    top: 0;
+
+    z-index: 1060;
+}
+
+a, a:link {
+    color: #EEEEEE;
+    text-decoration: none;
+
+    transition: 0.3s color;
+}
+
+a:hover {
+    color: #393e46;
+    text-decoration: none;
+
+    transition: 0.3s color;
+}
+
+.logo {
+    height: 2.4rem;
+    width: 2.4rem;
+    background-color: dimgray;
+    float: left;
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+i {
+    margin-left: 2rem;
+}
+
+span {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}

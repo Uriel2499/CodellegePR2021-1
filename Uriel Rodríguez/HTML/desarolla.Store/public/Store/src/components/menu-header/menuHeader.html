@@ -1,0 +1,18 @@
+<header class="w-100">
+  <a routerLink="/" class="d-flex align-items-center float-left">
+    <div class="logo"></div>
+    <span>desarrolla.Store</span>
+  </a>
+  <div class="d-flex align-items-center float-right h-100">
+    <a routerLink="/">Inicio</a>
+    <span>|</span>
+    <a routerLink="/catalog">Catálogo</a>
+    <span>|</span>
+    <a [routerLink]="accountRedirect === 'Login' ? '/login' : '/account'">{{ accountRedirect }}</a>
+
+    <a routerLink="/cart">
+      <i class="bi bi-cart3"></i>
+      ({{numberProducts}})
+    </a>
+  </div>
+</header>

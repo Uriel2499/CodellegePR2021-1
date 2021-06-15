@@ -1,0 +1,20 @@
+div {
+  color: rgb(92, 121, 92)
+}
+
+div i {
+  font-size: 8rem;
+}
+
+.pay-button {
+  padding: 0.5rem 2rem;
+  background: var(--color-blue);
+  border: 0;
+  border-radius: 0;
+  color: var(--color-white);
+}
+
+.pay-button:hover {
+  background: var(--color-gray);
+  color: var(--color-white);
+}

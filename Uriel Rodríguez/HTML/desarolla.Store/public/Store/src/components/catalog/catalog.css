@@ -1,0 +1,42 @@
+.filtro {
+    border: 0.3rem solid var(--color-blue);
+    color: var(--color-gray);
+}
+
+.product-card {
+    width: 18rem;
+    display: inline-flex;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.product-card img {
+    width: 100%;
+    height: 10rem;
+    background-color: dimgray;
+}
+
+.card-body button {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.3rem;
+}
+
+.card-body {
+    height: 10rem;
+}
+
+.card-text {
+    height: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--color-blue);
+}

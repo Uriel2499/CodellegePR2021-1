@@ -1,0 +1,20 @@
+{
+  "name": "desarolla.software.spgg",
+  "version": "1.0.0",
+  "description": "Proyecto desarrolla.Software",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Uriel Alejandro Rodríguez Cortés",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/cli": "^11.2.11",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {}
+}

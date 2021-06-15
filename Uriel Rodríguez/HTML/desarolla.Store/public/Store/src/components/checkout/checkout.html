@@ -1,0 +1,50 @@
+<section class="container py-5">
+  <div class="row">
+    <article class="col-9">
+      <h2><i class="bi bi-info-circle-fill"></i>Información de envío</h2>
+      <hr>
+      <ul class="list-group">
+        <li class="list-group-item"><i class="bi bi-person-fill"></i>Nombre:
+          <input type="text" (input)="UpdateValue($event, 'name')" [value]="userData.name">
+        </li>
+        <li class="list-group-item"><i class="bi bi-person-fill"></i>Apellidos:
+          <input type="text" (input)="UpdateValue($event, 'lastName')" [value]="userData.lastName"></li>
+        <li class="list-group-item"><i class="bi bi-envelope-fill"></i>Email:
+          <input type="text" (input)="UpdateValue($event, 'email')" [value]="userData.email"></li>
+        <li class="list-group-item"><i class="bi bi-telephone-fill"></i>Teléfono:
+          <input type="text" (input)="UpdateValue($event, 'phone')" [value]="userData.phone"></li>
+      </ul>
+
+      <h2 class="mt-5"><i class="bi bi-geo-alt-fill"></i>Dirección de envío</h2>
+      <hr>
+      <ul class="list-group">
+        <li class="list-group-item"><i class="bi bi-geo-fill"></i>Calle:
+          <input type="text" (input)="UpdateValue($event, 'street')" [value]="userData.address.street"></li>
+        <li class="list-group-item"><i class="bi bi-geo-fill"></i>Colonia:
+          <input type="text" (input)="UpdateValue($event, 'suburb')" [value]="userData.address.suburb"></li>
+        <li class="list-group-item"><i class="bi bi-geo-fill"></i>Ciudad:
+          <input type="text" (input)="UpdateValue($event, 'city')" [value]="userData.address.city"></li>
+        <li class="list-group-item"><i class="bi bi-geo-fill"></i>Estado:
+          <input type="text" (input)="UpdateValue($event, 'state')" [value]="userData.address.state"></li>
+        <li class="list-group-item"><i class="bi bi-geo-fill"></i>Código Postal:
+          <input type="text" (input)="UpdateValue($event, 'zip')" [value]="userData.address.zip"></li>
+      </ul>
+    </article>
+
+    <article class="col-3">
+      <h2>Resumen</h2>
+      <hr>
+      <section *ngIf="cart.quantity > 0 else emptyCart">
+        <h4 class="text-end">Subtotal: ${{cart.total * 0.84}}</h4>
+        <h4 class="text-end">IVA: ${{cart.total * 0.16}}</h4>
+        <hr>
+        <h4 class="text-end">Total: ${{cart.total}}</h4>
+        <hr>
+      </section>
+      <ng-template #emptyCart>
+        <h3>El carrito está vacío</h3>
+      </ng-template>
+      <div [hidden]="cart.quantity === 0" id="paypal-payment"></div>
+    </article>
+  </div>
+</section>
