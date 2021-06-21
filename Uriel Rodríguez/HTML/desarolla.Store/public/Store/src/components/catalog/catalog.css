@@ -1,23 +1,27 @@
 .filtro {
-    border: 0.3rem solid var(--color-blue);
+    border: 0.2rem solid #0550c9;
     color: var(--color-gray);
+    box-shadow: 0.1rem 0.3rem 1rem 0.3rem #003fa5;
 }
 
 .product-card {
-    width: 18rem;
+    width: 16rem;
     display: inline-flex;
-    margin-right: 1rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
     margin-bottom: 1rem;
+    border: 0.1rem solid #0550c9;
+    box-shadow: 0.1rem 0.3rem 1rem 0.3rem #003fa5;
 }
 
 .product-card img {
     width: 100%;
-    height: 10rem;
+    height: 14rem;
     background-color: dimgray;
 }
 
 .card-body button {
-    background-color: var(--color-blue);
+    background-color: #0550c9;
     color: var(--color-white);
     position: absolute;
     right: 0.3rem;
@@ -35,8 +39,34 @@
 }
 
 .toast {
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
     right: 1rem;
     background-color: var(--color-blue);
 }
+
+.search-bar {
+    position: relative;
+}
+
+.search-box {
+    padding-right: 1.5rem;
+}
+
+.search-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.35rem;
+}
+
+input[type=text] {
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid var(--required-status);
+    outline: 0;
+}
+
+input[type=text]:active {
+    outline: 0;
+} 

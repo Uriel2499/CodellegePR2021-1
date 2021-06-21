@@ -60,15 +60,13 @@ router.get('/getCart', async (req, res) => {
                     userCart.total += carrito.total;
 
                     var issues = await Utils.validateCart(userCart);
-                    //userCart.markModified('products');
-                    //await userCart.save();
-                    userCart = issues.cart;
+                    userCart = issues;
 
                     res.cookie('CARTID', userCart.id, {
                         expires: new Date(2025, 1, 1)
                     });
 
-                    //userCart = userCart.toObject();
+                    //userCart = userCart.cart.toObject();
                     //delete userCart._id;
                     //delete userCart.__v;
 

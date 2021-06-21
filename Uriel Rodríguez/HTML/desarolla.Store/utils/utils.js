@@ -26,6 +26,9 @@ module.exports = {
         });
         return false;
     },
+    genOrderID: function(){
+        return Date.now();
+    },
     genCartID: function() {
         var epoch = Date.now() + '' + Date.now() + '' + Date.now();
         epoch = Buffer.from(epoch).toString('base64');
@@ -103,8 +106,8 @@ module.exports = {
         carrito.markModified('products');
         await carrito.save();
 
-        console.log('El nuevo carrito: ');
-        console.log(cart_issues);
+        //console.log('El nuevo carrito: ');
+        //console.log(cart_issues);
     
         return { cart: carrito, cart_issues: cart_issues };
     

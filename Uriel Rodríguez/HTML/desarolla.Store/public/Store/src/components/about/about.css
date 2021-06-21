@@ -1,0 +1,17 @@
+.centered-flex {
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.insta {
+    width: 42rem;
+    height: 35rem;
+    background-color: dimgray;
+    display: inline-block;
+}
+hr{
+    margin: 2rem;
+    height: 0.2rem;
+    background-color: #0956add3;
+}

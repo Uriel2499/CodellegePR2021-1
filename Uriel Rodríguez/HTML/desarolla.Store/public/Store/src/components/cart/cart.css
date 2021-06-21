@@ -32,11 +32,12 @@ td {
 }
 
 .product-image {
-  max-width: 6rem;
+  max-width: 7rem;
 }
 
 .product-image img {
   height: 7rem;
+  width: 60%;
 }
 
 .product-detail {

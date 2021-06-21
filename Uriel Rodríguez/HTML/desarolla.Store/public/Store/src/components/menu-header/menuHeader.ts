@@ -2,7 +2,9 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { Singleton } from '../../refactoring/DataSingleton';
+import {
+  Singleton
+} from '../../refactoring/DataSingleton';
 declare var $: any;
 
 @Component({
@@ -17,8 +19,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.ReloadCart();
     var self = this;
-    Singleton.GetInstance().ReloadCart = function() { 
-      self.ReloadCart(); 
+    Singleton.GetInstance().ReloadCart = function () {
+      self.ReloadCart();
     };
 
     this.CheckSession();
@@ -32,21 +34,21 @@ export class HeaderComponent implements OnInit {
         withCredentials: true
       },
       url: "http://localhost:666/users/getSession",
-      success: function(result: any) {
-        if(result.session === true) {
-          if(window.location.pathname === '/register' || window.location.pathname === '/login') {
+      success: function (result: any) {
+        if (result.session === true) {
+          if (window.location.pathname === '/register' || window.location.pathname === '/login') {
             window.location.href = '/';
           }
           self.accountRedirect = "Mi Cuenta";
         }
       },
-      error: function() {
+      error: function () {
         self.accountRedirect = "Login";
       }
     });
   }
 
-  ReloadCart(){
+  ReloadCart() {
     var self = this;
     Singleton.GetInstance().ShowLoader();
     $.ajax({
@@ -56,11 +58,31 @@ export class HeaderComponent implements OnInit {
       },
       url: "http://localhost:666/carts/getCart",
       success: function (cartInfo: any) {
-        if(Singleton.GetInstance().UpdateCheckout) {
-          var copia = Object.assign({},cartInfo);
+        //Mostrar un modal o mensaje con los issues
+        var issues = cartInfo.cart_issues;
+        if (issues.length) {
+          var messages = '';
+          for (var i = 0; i < issues.length; i++) {
+            const problema = issues[i];
+            messages += problema.issue + "<br>En Producto: " + problema.product.sku + "<br>Nombre: " + problema.product.name + "<hr>";
+          }
+
+          //Mostrar modal
+          alert(messages);
+        }
+
+        cartInfo = cartInfo.cart;
+
+        if (Singleton.GetInstance().UpdateCheckout) {
+          var copia = Object.assign({}, cartInfo);
           Singleton.GetInstance().UpdateCheckout(copia);
         }
-        
+
+        if (Singleton.GetInstance().UpdateCartPage) {
+          var copia = Object.assign({}, cartInfo);
+          Singleton.GetInstance().UpdateCartPage(copia);
+        }
+
         self.numberProducts = cartInfo.quantity;
         Singleton.GetInstance().HideLoader();
       }

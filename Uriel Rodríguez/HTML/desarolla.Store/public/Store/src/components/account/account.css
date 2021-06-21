@@ -6,3 +6,35 @@
 .bi {
     margin-right: 1rem;
 }
+
+.logout-btn {
+    float: right;
+    font-size: 1rem;
+    color: var(--color-black);
+    border-bottom: 1px solid var(--color-blue);
+    margin-top: 0.4rem;
+    padding: 0.3rem;
+    cursor: pointer;
+
+    transition: 0.3s color, 0.3s background-color, 0.3s border-bottom;
+}
+
+.logout-btn:hover {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    border-bottom: 1px solid var(--color-black);
+
+    transition: 0.3s color, 0.3s background-color, 0.3s border-bottom;
+}
+
+.bi-pencil-square, .bi-check2-square {
+    float: right;
+    cursor: pointer;
+}
+
+input[type=text] {
+    border: 0;
+    outline: 0;
+    color: var(--color-gray);
+    border-bottom: 1px solid var(--color-blue);
+}

@@ -1,10 +1,20 @@
 <main class="container py-3">
-  <h1>desarrolla.Store - Catálogo de productos</h1>
+  <h1>Shoe Plug Mx - Catálogo de productos</h1>
   <article class="row">
     <section class="filtro col-3">
       <h3>Filtros de búsqueda</h3>
-      <input type="checkbox" name="Filtro tal" id="filtro1">
-      <label for="filtro1">Filtro 1</label>
+      <div class="search-bar">
+        <input [value]="searchFilters.name" (input)="UpdateName($event.target)" (keydown)="CheckKey($event);" type="text" class="w-100 search-box" placeholder="Buscar...">
+        <div class="search-icon" (click)="GetProducts();">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+      <br>
+      Precios: $0 - ${{searchFilters.price}}
+      <input class="w-100" type="range" min="0" max="15000" step="100" [value]="searchFilters.price" (input)="UpdatePrice($event.target);" (change)="GetProducts();">
+      <br>
+      <label for="stock">Con Stock:&nbsp;</label>
+      <input type="checkbox" id="stock" [checked]="searchFilters.stock" (change)="UpdateStock($event.target);">
     </section>
     <section class="col-9 px-2">
       <div *ngFor="let product of products" class="card product-card">
@@ -31,8 +41,12 @@
           <p class="card-text">
             {{product.description}}
           </p>
-          <button (click)="AddToCart(product.sku)" class="btn float-right">+</button>
+          <button [disabled]="product.stock < 1" (click)="AddToCart(product.sku)" class="btn float-right">+</button>
         </div>
+      </div>
+      <div class="text-center" *ngIf="!products.length">
+        <h2 class="mt-5">No se han encontrado resultados :(</h2>
+        <h4>Pruebe con otros criterios de búsqueda.</h4>
       </div>
     </section>
   </article>

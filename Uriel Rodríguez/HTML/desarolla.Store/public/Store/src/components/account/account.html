@@ -1,22 +1,87 @@
 <section class="container py-5">
-  <h2><i class="bi bi-info-circle-fill"></i>Información del usuario</h2>
+  <div class="alert alert-danger" [hidden]="errorInfo === ''" role="alert">
+    {{errorInfo}}
+  </div>
+  <h2>
+    <i class="bi bi-info-circle-fill"></i>
+    Información del usuario
+    <span class="logout-btn" (click)="LogOut();">Cerrar Sesión</span>
+  </h2>
   <hr>
   <ul class="list-group">
-    <li class="list-group-item"><i class="bi bi-person-fill"></i>ID: {{userData.nickname}}</li>
-    <li class="list-group-item"><i class="bi bi-person-fill"></i>Nombre: {{userData.name}}</li>
-    <li class="list-group-item"><i class="bi bi-person-fill"></i>Apellidos: {{userData.lastName}}</li>
-    <li class="list-group-item"><i class="bi bi-envelope-fill"></i>Email: {{userData.email}}</li>
-    <li class="list-group-item"><i class="bi bi-telephone-fill"></i>Teléfono: {{userData.phone}}</li>
+    <li class="list-group-item"><i class="bi bi-person-fill"></i>
+      <span [hidden]="Editing['nickname']">ID: {{userData.nickname}}</span>
+      <input type="text" [hidden]="!Editing['nickname']" [value]="userData.nickname"
+        (input)="UpdateValue($event, 'nickname');">
+      <i [hidden]="Editing['nickname']" (click)="Editing['nickname'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('nickname');" [hidden]="!Editing['nickname']" (click)="Editing['nickname'] = false"
+        class="bi bi-check2-square"></i>
+    </li>
+    <li class="list-group-item"><i class="bi bi-person-fill"></i>
+      <span [hidden]="Editing['name']">Nombre: {{userData.name}}</span>
+      <input type="text" [hidden]="!Editing['name']" [value]="userData.name" (input)="UpdateValue($event, 'name');">
+      <i [hidden]="Editing['name']" (click)="Editing['name'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('name');" [hidden]="!Editing['name']" (click)="Editing['name'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-person-fill"></i>
+      <span [hidden]="Editing['lastName']">Apellidos: {{userData.lastName}}</span>
+      <input type="text" [hidden]="!Editing['lastName']" [value]="userData.lastName"
+        (input)="UpdateValue($event, 'lastName');">
+      <i [hidden]="Editing['lastName']" (click)="Editing['lastName'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('lastName');" [hidden]="!Editing['lastName']" (click)="Editing['lastName'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-envelope-fill"></i>
+      <span [hidden]="Editing['email']">Email: {{userData.email}}</span>
+      <input type="text" [hidden]="!Editing['email']" [value]="userData.email" (input)="UpdateValue($event, 'email');">
+      <i [hidden]="Editing['email']" (click)="Editing['email'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('email');" [hidden]="!Editing['email']" (click)="Editing['email'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-telephone-fill"></i>
+      <span [hidden]="Editing['phone']">Teléfono: {{userData.phone}}</span>
+      <input type="text" [hidden]="!Editing['phone']" [value]="userData.phone" (input)="UpdateValue($event, 'phone');">
+      <i [hidden]="Editing['phone']" (click)="Editing['phone'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('phone');" [hidden]="!Editing['phone']" (click)="Editing['phone'] = false"
+        class="bi bi-check2-square"></i></li>
   </ul>
 
   <h2 class="mt-5"><i class="bi bi-geo-alt-fill"></i>Datos de envío</h2>
   <hr>
   <ul class="list-group">
-    <li class="list-group-item"><i class="bi bi-geo-fill"></i>Calle: {{userData.address.street}}</li>
-    <li class="list-group-item"><i class="bi bi-geo-fill"></i>Colonia: {{userData.address.suburb}}</li>
-    <li class="list-group-item"><i class="bi bi-geo-fill"></i>Ciudad: {{userData.address.city}}</li>
-    <li class="list-group-item"><i class="bi bi-geo-fill"></i>Estado: {{userData.address.state}}</li>
-    <li class="list-group-item"><i class="bi bi-geo-fill"></i>Código Postal: {{userData.address.zip}}</li>
+    <li class="list-group-item"><i class="bi bi-geo-fill"></i>
+      <span [hidden]="Editing['street']">Calle: {{userData.address.street}}</span>
+      <input type="text" [hidden]="!Editing['street']" [value]="userData.address.street"
+        (input)="UpdateValue($event, 'street');">
+      <i [hidden]="Editing['street']" (click)="Editing['street'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('address');" [hidden]="!Editing['street']" (click)="Editing['street'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-geo-fill"></i>
+      <span [hidden]="Editing['suburb']">Colonia: {{userData.address.suburb}}</span>
+      <input type="text" [hidden]="!Editing['suburb']" [value]="userData.address.suburb"
+        (input)="UpdateValue($event, 'suburb');">
+      <i [hidden]="Editing['suburb']" (click)="Editing['suburb'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('address');" [hidden]="!Editing['suburb']" (click)="Editing['suburb'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-geo-fill"></i>
+      <span [hidden]="Editing['city']">Ciudad: {{userData.address.city}}</span>
+      <input type="text" [hidden]="!Editing['city']" [value]="userData.address.city"
+        (input)="UpdateValue($event, 'city');">
+      <i [hidden]="Editing['city']" (click)="Editing['city'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('address');" [hidden]="!Editing['city']" (click)="Editing['city'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-geo-fill"></i>
+      <span [hidden]="Editing['state']">Estado: {{userData.address.state}}</span>
+      <input type="text" [hidden]="!Editing['state']" [value]="userData.address.state"
+        (input)="UpdateValue($event, 'state');">
+      <i [hidden]="Editing['state']" (click)="Editing['state'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('address');" [hidden]="!Editing['state']" (click)="Editing['state'] = false"
+        class="bi bi-check2-square"></i></li>
+    <li class="list-group-item"><i class="bi bi-geo-fill"></i>
+      <span [hidden]="Editing['zip']">Código Postal: {{userData.address.zip}}</span>
+      <input type="text" [hidden]="!Editing['zip']" [value]="userData.address.zip"
+        (input)="UpdateValue($event, 'zip');">
+      <i [hidden]="Editing['zip']" (click)="Editing['zip'] = true" class="bi bi-pencil-square"></i>
+      <i (click)="UpdateInfo('address');" [hidden]="!Editing['zip']" (click)="Editing['zip'] = false"
+        class="bi bi-check2-square"></i></li>
   </ul>
 
 </section>

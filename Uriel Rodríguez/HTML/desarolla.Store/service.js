@@ -44,4 +44,7 @@ app.use('/products', routerProducts);
 var routerCarts = require('./routers/carts');
 app.use('/carts', routerCarts);
 
+var routerOrders = require('./routers/orders');
+app.use('/orders', routerOrders);
+
 app.listen(PORT);
