@@ -1,0 +1,2 @@
+Para utilizar un proyecto ya hecho de express, lo que se necesita es primero realizar un npm install desde la carpeta del servicio, esto para instalar la carpeta node_modules,
+posteriormente, solo se deberá de inicializar el servicio ingresando un node nombredelservicio.js en la terminal
